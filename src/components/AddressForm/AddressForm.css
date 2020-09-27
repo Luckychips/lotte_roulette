@@ -1,0 +1,94 @@
+.form-container {
+    padding: 20px;
+    background-color: white;
+}
+
+.form-header {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.56;
+    letter-spacing: -0.72px;
+    text-align: left;
+    color: #3e2121;
+    margin-bottom: 20px;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 6px;
+}
+
+.row-flex-start {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.row-flex-start label {
+    padding-top: 2px;
+}
+
+.address-form label {
+    font-size: 12px;
+    text-align: left;
+    color: #736161;
+}
+
+.address-form input[type="text"] {
+    width: 75%;
+    border-color: #ececec;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-style: solid;
+    border-width: 1px;
+    margin-right: 15px;
+}
+
+.address-form input[type="text"].field-addr {
+    width: 53% !important;
+    margin-left: 47px;
+    margin-right: 6px !important;
+}
+
+.address-form .search-address {
+    background-color: #292625;
+    border: 1px solid #292625;
+    color: #f0f0f0;
+    font-size: 10px;
+    padding: 0 15px;
+    margin-right: 15px;
+}
+
+.address-form .checkbox-name {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 5px;
+    text-align: left;
+}
+
+.separator {
+    width: 100%;
+    height: 1px;
+    background-color: #cccccc;
+    margin: 25px 0;
+}
+
+.guide_text {
+    width: 130%;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.address-form-submit-button {
+    background-color: #f82e2e;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-width: 0;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    border-radius: 30px;
+    width: 100%;
+    padding: 10px 0;
+}

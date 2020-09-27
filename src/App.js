@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
+import { CodeInput, Roulette, AddressForm } from './components';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isAlready, setIsAlready] = useState(false);
+    const [prizeNumber, setPrizeNumber] = useState(0);
+    const [promotionCode, setPromotionCode] = useState('');
+    return (
+        <div className="App">
+            <CodeInput
+                isAlready={isAlready}
+                setPrizeNumber={number => setPrizeNumber(number)}
+                promotionCode={promotionCode}
+                setPromotionCode={(code) => setPromotionCode(code)}
+            />
+            <Roulette prizeNumber={prizeNumber} isAlready={isAlready} drawAPrize={(value) => setIsAlready(value)} />
+            <AddressForm promotionCode={promotionCode} isAlready={isAlready} />
+        </div>
+    );
 }
 
 export default App;
