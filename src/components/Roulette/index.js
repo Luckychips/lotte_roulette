@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Roulette.css';
 
 // 1	미니샤넬백
@@ -19,6 +19,7 @@ const Roulette = ({prizeNumber, isAlready, drawAPrize}) => {
             alert('더이상 이벤트에 참여하실 수 없습니다.');
             return;
         }
+
         const roulette = document.querySelector('.roulette');
         roulette.classList.add(`loop-${prizeNumber}`);
         setTimeout(() => {
@@ -55,7 +56,6 @@ const Roulette = ({prizeNumber, isAlready, drawAPrize}) => {
                 <img src="/images/btn_roulette_start.png" alt="" />
             </div>
         </div>
-
     );
 };
 

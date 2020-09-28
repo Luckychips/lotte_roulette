@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 import {Form, InputGroup, FormControl} from 'react-bootstrap';
 import {checkPromotionCode} from '../../API';
 import 'bootstrap/dist/css/bootstrap.min.css';
