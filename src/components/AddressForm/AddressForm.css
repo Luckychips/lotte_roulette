@@ -92,3 +92,25 @@
     width: 100%;
     padding: 10px 0;
 }
+
+.prize-info {
+    padding-bottom: 100px;
+    margin-top: 10px;
+    padding-left: 8%;
+}
+
+.prize-info .info-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: white;
+    text-align: left;
+    margin-top: 25px;
+}
+
+.prize-info .info-content {
+    font-size: 10px;
+    font-weight: 600;
+    color: white;
+    text-align: left;
+    margin-top: 7px;
+}

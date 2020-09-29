@@ -119,7 +119,18 @@ const AddressForm = ({promotionCode, isAlready}) => {
                     {!isHidePostCode && <PostCode onComplete={postCodeOnComplete} />}
                 </div>
             ) : (
-                <img className="guide_text" src="/images/guide_text.png" alt="" />
+                <div className="prize-info">
+                    <div className="info-title">경품라인업</div>
+                    <div className="info-content">샤넬미니백, 특급호텔숙박권, 특급호텔식사권 등 7종(총 2억원 상당)</div>
+                    <div className="info-title">유의사항</div>
+                    <div className="info-content">
+                        <div>&middot; 옵션을 선택하거나 교환할 수 없습니다</div>
+                        <div>&middot; 배송은 제품발송 후 영업일 기준 3~7일 정도 소요됩니다</div>
+                        <div>&middot; 배송지역은 국내만 가능합니다</div>
+                        <div>&middot; 배송지 및 연락처 오 기재로 인한 배송사고는 책임지지 않습니다</div>
+                        <div>&middot; 배송문의 : 02-6949-3010</div>
+                    </div>
+                </div>
             )}
         </div>
     );
