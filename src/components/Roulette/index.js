@@ -11,21 +11,23 @@ import './Roulette.css';
 // 8	마카롱택시 할인권
 
 const prizes = ['미니샤넬백', '골드바10돈', '하트만 알미늄캐리어', '루이비통조예월렛', '갤럭시 Z플립 2', '무료식사권', '폴바셋라테 쿠폰', '마카롱택시 할인권'];
-const Roulette = ({prizeNumber, isAlready, drawAPrize}) => {
+const Roulette = ({promotionCode, prizeNumber, isAlready, drawAPrize}) => {
     const [isFinish, setIsFinish] = useState(false);
 
     const doSpin = () => {
-        if (isAlready) {
-            alert('더이상 이벤트에 참여하실 수 없습니다.');
-            return;
-        }
+        if (promotionCode.length > 0) {
+            if (isAlready) {
+                alert('더이상 이벤트에 참여하실 수 없습니다.');
+                return;
+            }
 
-        const roulette = document.querySelector('.roulette');
-        roulette.classList.add(`loop-${prizeNumber}`);
-        setTimeout(() => {
-            setIsFinish(true);
-            drawAPrize(true);
-        }, 5500);
+            const roulette = document.querySelector('.roulette');
+            roulette.classList.add(`loop-${prizeNumber}`);
+            setTimeout(() => {
+                setIsFinish(true);
+                drawAPrize(true);
+            }, 5500);
+        }
     };
 
     const getPrizeImage = () => {

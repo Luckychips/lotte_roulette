@@ -14,7 +14,12 @@ function App() {
                 promotionCode={promotionCode}
                 setPromotionCode={(code) => setPromotionCode(code)}
             />
-            <Roulette prizeNumber={prizeNumber} isAlready={isAlready} drawAPrize={(value) => setIsAlready(value)} />
+            <Roulette
+                promotionCode={promotionCode}
+                prizeNumber={prizeNumber}
+                isAlready={isAlready}
+                drawAPrize={(value) => setIsAlready(value)}
+            />
             <AddressForm promotionCode={promotionCode} isAlready={isAlready} />
         </div>
     );
