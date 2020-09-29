@@ -16,8 +16,7 @@ import './CodeInput.css';
 * */
 const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
     const [isVerified, setIsVerified] = useState(false);
-    const submit = async (event) => {
-        event.preventDefault();
+    const requestToServer = async () => {
         try {
             const response = await checkPromotionCode(promotionCode);
             if (response.data.success) {
@@ -45,12 +44,34 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
         }
     };
 
+    const pressEnter = async (event) => {
+        event.stopPropagation();
+        if (event.key === 'Enter') {
+            if (promotionCode.length <= 0) {
+                alert('이벤트 번호를 입력해주세요.');
+                return;
+            }
+
+            await requestToServer();
+        }
+    };
+
+    const submit = async (event) => {
+        event.preventDefault();
+        if (promotionCode.length <= 0) {
+            alert('이벤트 번호를 입력해주세요.');
+            return;
+        }
+
+        await requestToServer();
+    };
+
     return isVerified ? (
         <img className="verified" src="/images/verified.png" alt="" />
     ) : (
         <div className="code-input-window">
             <div className="event-number-name">이벤트 번호를 입력하세요.</div>
-            <Form className="form-event-number">
+            <div className="form-event-number">
                 <InputGroup className="mb-3">
                     <FormControl
                         aria-label="Recipient's username"
@@ -58,12 +79,13 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
                         className="input-event-number"
                         value={promotionCode}
                         onChange={(event) => setPromotionCode(event.target.value)}
+                        onKeyPress={(event) => pressEnter(event)}
                     />
                     <InputGroup.Append className="event-submit-button" onClick={(event) => submit(event)}>
                         <InputGroup.Text className="button-text" id="basic-auth">인증하기</InputGroup.Text>
                     </InputGroup.Append>
                 </InputGroup>
-            </Form>
+            </div>
         </div>
     );
 };

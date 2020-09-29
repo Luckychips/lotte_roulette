@@ -1,6 +1,33 @@
+@media screen and (max-width: 375px) {
+    .info-container {
+        padding: 20px;
+        background-color: #e03434;
+    }
+
+    .address-form input[type="text"].field-addr {
+        width: 50% !important;
+        margin-left: 38px;
+        margin-right: 6px !important;
+    }
+}
+
+@media screen and (min-width: 376px) {
+    .info-container {
+        padding: 40px;
+        background-color: #e03434;
+    }
+
+    .address-form input[type="text"].field-addr {
+        width: 64% !important;
+        margin-left: 132px;
+        margin-right: 6px !important;
+    }
+}
+
 .form-container {
     padding: 20px;
     background-color: white;
+    border-radius: 8px;
 }
 
 .form-header {
@@ -43,12 +70,6 @@
     border-style: solid;
     border-width: 1px;
     margin-right: 15px;
-}
-
-.address-form input[type="text"].field-addr {
-    width: 53% !important;
-    margin-left: 47px;
-    margin-right: 6px !important;
 }
 
 .address-form .search-address {

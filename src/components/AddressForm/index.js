@@ -67,7 +67,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
     };
 
     return (
-        <div>
+        <div className="info-container">
             {isAlready ? (
                 <div className="form-container">
                     <div className="form-header">배송지 입력</div>
