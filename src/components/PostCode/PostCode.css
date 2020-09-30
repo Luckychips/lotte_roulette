@@ -1,0 +1,21 @@
+.btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 800px;
+    height: 30px;
+    background-color: #eee;
+    border: 1px solid;
+    border-bottom: none;
+}
+
+.btn-close img {
+    position: absolute;
+    right: 0;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}

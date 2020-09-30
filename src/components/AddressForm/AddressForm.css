@@ -114,6 +114,10 @@
     padding: 10px 0;
 }
 
+.address-form-submit-button.disabled {
+    background-color: #efefef;
+}
+
 .prize-info {
     padding-bottom: 100px;
     margin-top: 10px;

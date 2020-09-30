@@ -23,7 +23,7 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
                 setIsVerified(true);
                 setPrizeNumber(response.data.data.gifts_code);
             } else {
-                alert('이벤트 번호가 잘못되었습니다.');
+                alert('번호 확인 후 다시 입력해주세요.');
             }
         } catch (e) {
             const exceptionData = e.response.data;
@@ -31,13 +31,13 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
                 const code = exceptionData.data.code;
                 switch (code) {
                     case 10000:
-                        alert('이벤트 번호가 잘못되었습니다.');
+                        alert('번호 확인 후 다시 입력해주세요.');
                         break;
                     case 10100:
-                        alert('해당 이벤트 번호가 존재하지 않거나, 이미 참여된 이벤트 번호입니다.');
+                        alert('이미 참여한 이벤트 번호입니다.');
                         break;
                     default:
-                        alert('이벤트 번호가 잘못되었습니다.');
+                        alert('번호 확인 후 다시 입력해주세요.');
                         break;
                 }
             }
@@ -48,7 +48,7 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
         event.stopPropagation();
         if (event.key === 'Enter') {
             if (promotionCode.length <= 0) {
-                alert('이벤트 번호를 입력해주세요.');
+                alert('번호 확인 후 다시 입력해주세요.');
                 return;
             }
 
@@ -59,7 +59,7 @@ const CodeInput = ({setPrizeNumber, promotionCode, setPromotionCode}) => {
     const submit = async (event) => {
         event.preventDefault();
         if (promotionCode.length <= 0) {
-            alert('이벤트 번호를 입력해주세요.');
+            alert('번호 확인 후 다시 입력해주세요.');
             return;
         }
 

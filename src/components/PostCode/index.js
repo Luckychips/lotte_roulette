@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './PostCode.css';
 
 const defaultErrorMessage = (<p>현재 Daum 우편번호 서비스를 이용할 수 없습니다. 잠시 후 다시 시도해주세요.</p>);
 
@@ -72,6 +73,7 @@ class Postcode extends React.Component {
         const {
             style,
             onComplete,
+            hidePostCode,
             onSearch,
             alwaysShowEngAddr,
             animation,
@@ -100,21 +102,29 @@ class Postcode extends React.Component {
         } = this.props;
 
         return (
-            <div
-                ref={(div) => { this.wrap = div; }}
-                style={{
-                    width: this.state.width,
-                    height: this.state.height,
-                    display: this.state.display,
-                    position: 'absolute',
-                    top: 20,
-                    left: 5,
-                    zIndex: 100,
-                    ...style,
-                }}
-                {...rest}
-            >
-                {this.state.error && this.props.errorMessage}
+            <div>
+                <div className="btn-close" >
+                    <img src="/images/btn_close.png" alt="" onClick={() => hidePostCode()} />
+                </div>
+                <div
+                    ref={(div) => { this.wrap = div; }}
+                    style={{
+                        width: this.state.width,
+                        height: this.state.height,
+                        display: this.state.display,
+                        position: 'absolute',
+                        top: 30,
+                        left: '50%',
+                        transform: 'translateX(-50%)',
+                        maxWidth: 800,
+                        zIndex: 100,
+                        border: '1px solid',
+                        ...style,
+                    }}
+                    {...rest}
+                >
+                    {this.state.error && this.props.errorMessage}
+                </div>
             </div>
         );
     }
@@ -122,6 +132,7 @@ class Postcode extends React.Component {
 
 Postcode.propTypes = {
     onComplete: PropTypes.func.isRequired,
+    hidePostCode: PropTypes.func.isRequired,
     onSearch: PropTypes.func,
     alwaysShowEngAddr: PropTypes.bool,
     animation: PropTypes.bool,

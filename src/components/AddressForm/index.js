@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {PostCode} from '..';
 import {insertAddress} from '../../API';
 import './AddressForm.css';
@@ -10,8 +10,9 @@ const AddressForm = ({promotionCode, isAlready}) => {
     const [address, setAddress] = useState('');
     const [detailAddress, setDetailAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
-    const [isCheckedPrivacy, setIsCheckedPrivacy] = useState(false);
-    const [isCheckedConsignment, setIsCheckedConsignment] = useState(false);
+    const [isCheckedPrivacy, setIsCheckedPrivacy] = useState(true);
+    const [isCheckedConsignment, setIsCheckedConsignment] = useState(true);
+    const [isDisabledButton, setIsDisabledButton] = useState(true);
     const [isHidePostCode, setIsHidePostCode] = useState(true);
 
     const postCodeOnComplete = (data) => {
@@ -41,8 +42,8 @@ const AddressForm = ({promotionCode, isAlready}) => {
 
     const submit = async (event) => {
         event.preventDefault();
-        if (!isCheckedPrivacy) {
-            alert('개인 정보 수집 및 이용에 동의해주세요.');
+        if (!isCheckedPrivacy || !isCheckedConsignment) {
+            alert('필수 동의사항에 동의해주세요.');
             return;
         }
 
@@ -60,11 +61,20 @@ const AddressForm = ({promotionCode, isAlready}) => {
 
         const response = await insertAddress(params);
         if (response.status === 200 && response.data.success) {
-            alert('이벤트가 처리되었습니다.');
+            alert('경품 신청이 완료되었습니다.\n경품 발송은 이벤트 종료 후 일괄 발송됩니다.');
+            window.location.reload();
         } else {
             alert('처리 중 문제가 발생했습니다.');
         }
     };
+
+    useEffect(() => {
+        if (name.length > 0 && phone.length > 0 && email.length > 0 && address.length > 0 && detailAddress.length > 0 && isCheckedPrivacy && isCheckedConsignment) {
+            setIsDisabledButton(false);
+        } else {
+            setIsDisabledButton(true);
+        }
+    }, [name, phone, email, address, detailAddress, isCheckedPrivacy, isCheckedConsignment]);
 
     return (
         <div className="info-container">
@@ -102,7 +112,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                                     checked={isCheckedPrivacy}
                                     onChange={(event) => setIsCheckedPrivacy(event.target.checked)} />
                             </label>
-                            <span className="checkbox-name">개인 정보 수집 및 이용(필수)</span>
+                            <span className="checkbox-name">[필수] 개인 정보 수집 및 이용</span>
                         </div>
                         <div className="row-flex-start">
                             <label>
@@ -112,22 +122,31 @@ const AddressForm = ({promotionCode, isAlready}) => {
                                     checked={isCheckedConsignment}
                                     onChange={(event) => setIsCheckedConsignment(event.target.checked)} />
                             </label>
-                            <span className="checkbox-name">이벤트 경품 발송 및 정보처리를 위한 개인 정보처리 및 위탁에 동의합니다.</span>
+                            <span className="checkbox-name">[필수] 이벤트 경품 발송 및 정보처리를 위한 개인 정보처리 및 위탁에 동의합니다.</span>
                         </div>
-                        <button className="address-form-submit-button" onClick={submit}>확  인</button>
+                        <button
+                            disabled={isDisabledButton}
+                            className={`address-form-submit-button ${isDisabledButton ? 'disabled' : ''}`}
+                            onClick={submit}>
+                            확  인
+                        </button>
                     </form>
-                    {!isHidePostCode && <PostCode onComplete={postCodeOnComplete} />}
+                    {!isHidePostCode && <PostCode onComplete={postCodeOnComplete} hidePostCode={() => setIsHidePostCode(true)} />}
                 </div>
             ) : (
                 <div className="prize-info">
                     <div className="info-title">경품라인업</div>
-                    <div className="info-content">샤넬미니백, 특급호텔숙박권, 특급호텔식사권 등 7종(총 2억원 상당)</div>
+                    <div className="info-content">명품가방, 지갑, 금10돈, 무료식사권, 커피이용권 등 7종</div>
                     <div className="info-title">유의사항</div>
                     <div className="info-content">
-                        <div>&middot; 옵션을 선택하거나 교환할 수 없습니다</div>
-                        <div>&middot; 배송은 제품발송 후 영업일 기준 3~7일 정도 소요됩니다</div>
-                        <div>&middot; 배송지역은 국내만 가능합니다</div>
-                        <div>&middot; 배송지 및 연락처 오 기재로 인한 배송사고는 책임지지 않습니다</div>
+                        <div>&middot; 이벤트 참여는 인증번호 1개 당 1회 응모 가능하며, 중복 당첨은 불가합니다.</div>
+                        <div>&middot; 당첨된 경품은 타인에게 양도되지 않으며, 미 사용분에 대하여 재발송 불가합니다.</div>
+                        <div>&middot; 당첨된 경품은 매장에서의 타상품 교환 및 현금 환불이 절대 불가합니다.</div>
+                        <div>&middot; 타인의 인증번호 도용, 대리참가 등 부정한 방법으로 이벤트 참여 시, 확인 후 당첨이 취소될 수 있습니다.</div>
+                        <div>&middot; 경품수령은 제품 발송 후 영업일 기준 7일 정도 소요됩니다.</div>
+                        <div>&middot; 경품은 상기 이미지와 다를 수 있으며, 당사 사정으로 인해 수량 및 상품이 변경될 수 있습니다.</div>
+                        <div>&middot; 배송 지역은 국내만 가능합니다.</div>
+                        <div>&middot; 배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
                         <div>&middot; 배송문의 : 02-6949-3010</div>
                     </div>
                 </div>
