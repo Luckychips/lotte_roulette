@@ -1,13 +1,40 @@
+.relative-container {
+    position: relative;
+    padding-left: 10px;
+}
+
+.relative-container .dot {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
 @media screen and (max-width: 375px) {
     .info-container {
-        padding: 20px;
+        padding: 10px;
         background-color: #e03434;
+    }
+
+    .info-container .info-title {
+        padding-left: 15px;
     }
 
     .address-form input[type="text"].field-addr {
         width: 50% !important;
         margin-left: 38px;
         margin-right: 6px !important;
+    }
+
+    .size-sm {
+        display: block;
+        padding-top: 1px;
+        padding-bottom: 20px !important;
+        background-color: #511515;
+    }
+
+    .size-md {
+        display: none;
     }
 }
 
@@ -21,6 +48,19 @@
         width: 64% !important;
         margin-left: 132px;
         margin-right: 6px !important;
+    }
+
+    .size-sm {
+        display: none;
+    }
+
+    .size-md {
+        display: block;
+        background-color: #511515;
+    }
+
+    .prize-info .info-content > div {
+        margin-bottom: 5px;
     }
 }
 
@@ -119,13 +159,14 @@
 }
 
 .prize-info {
-    padding-bottom: 100px;
+    padding-top: 5px;
+    padding-bottom: 35px;
     margin-top: 10px;
-    padding-left: 8%;
+    padding-left: 5%;
 }
 
 .prize-info .info-title {
-    font-size: 12px;
+    font-size: 20px;
     font-weight: 700;
     color: white;
     text-align: left;
@@ -133,9 +174,18 @@
 }
 
 .prize-info .info-content {
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 600;
     color: white;
     text-align: left;
     margin-top: 7px;
+}
+
+.prize-info .info-content.category {
+    padding-left: 15px;
+}
+
+.prize-info .list-item-text {
+    display: inline-block;
+    margin: 0 10px 9px 6px;
 }

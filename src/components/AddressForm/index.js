@@ -134,20 +134,84 @@ const AddressForm = ({promotionCode, isAlready}) => {
                     {!isHidePostCode && <PostCode onComplete={postCodeOnComplete} hidePostCode={() => setIsHidePostCode(true)} />}
                 </div>
             ) : (
-                <div className="prize-info">
-                    <div className="info-title">경품라인업</div>
-                    <div className="info-content">명품가방, 지갑, 금10돈, 무료식사권, 커피이용권 등 7종</div>
-                    <div className="info-title">유의사항</div>
-                    <div className="info-content">
-                        <div>&middot; 이벤트 참여는 인증번호 1개 당 1회 응모 가능하며, 중복 당첨은 불가합니다.</div>
-                        <div>&middot; 당첨된 경품은 타인에게 양도되지 않으며, 미 사용분에 대하여 재발송 불가합니다.</div>
-                        <div>&middot; 당첨된 경품은 매장에서의 타상품 교환 및 현금 환불이 절대 불가합니다.</div>
-                        <div>&middot; 타인의 인증번호 도용, 대리참가 등 부정한 방법으로 이벤트 참여 시, 확인 후 당첨이 취소될 수 있습니다.</div>
-                        <div>&middot; 경품수령은 제품 발송 후 영업일 기준 7일 정도 소요됩니다.</div>
-                        <div>&middot; 경품은 상기 이미지와 다를 수 있으며, 당사 사정으로 인해 수량 및 상품이 변경될 수 있습니다.</div>
-                        <div>&middot; 배송 지역은 국내만 가능합니다.</div>
-                        <div>&middot; 배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
-                        <div>&middot; 배송문의 : 02-6949-3010</div>
+                <div>
+                    <div className="prize-info size-md">
+                        <div className="info-title">경품라인업</div>
+                        <div className="info-content">명품가방, 지갑, 금10돈, 무료식사권, 커피이용권 등 7종</div>
+                        <div className="info-title">유의사항</div>
+                        <div className="info-content">
+                            <div>&middot; 이벤트 참여는 인증번호 1개 당 1회 응모 가능하며, 중복 당첨은 불가합니다.</div>
+                            <div>&middot; 당첨된 경품은 타인에게 양도되지 않으며, 미 사용분에 대하여 재발송 불가합니다.</div>
+                            <div>&middot; 당첨된 경품은 매장에서의 타상품 교환 및 현금 환불이 절대 불가합니다.</div>
+                            <div>&middot; 타인의 인증번호 도용, 대리참가 등 부정한 방법으로 이벤트 참여 시, 확인 후 당첨이 취소될 수 있습니다.</div>
+                            <div>&middot; 경품수령은 제품 발송 후 영업일 기준 7일 정도 소요됩니다.</div>
+                            <div>&middot; 경품은 상기 이미지와 다를 수 있으며, 당사 사정으로 인해 수량 및 상품이 변경될 수 있습니다.</div>
+                            <div>&middot; 배송 지역은 국내만 가능합니다.</div>
+                            <div>&middot; 배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
+                            <div>&middot; 배송문의 : 02-6949-3010</div>
+                        </div>
+                    </div>
+                    <div className="prize-info size-sm">
+                        <div className="info-title">경품라인업</div>
+                        <div className="info-content category">명품가방, 지갑, 금10돈, 무료식사권, <br />커피이용권 등 7종</div>
+                        <div className="info-title">유의사항</div>
+                        <div className="info-content">
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>이벤트 참여는 인증번호 1개 당 1회 응모 가능하며, 중복 당첨은 불가합니다.</div>
+                            </span>
+                            </div>
+
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>당첨된 경품은 타인에게 양도되지 않으며, 미 사용분에 대하여 재발송 불가합니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>당첨된 경품은 매장에서의 타상품 교환 및 현금 환불이 절대 불가합니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>타인의 인증번호 도용, 대리참가 등 부정한 방법으로 이벤트 참여 시, 확인 후 당첨이 취소될 수 있습니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>경품수령은 제품 발송 후 영업일 기준 7일 정도 소요됩니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>경품은 상기 이미지와 다를 수 있으며, 당사 사정으로 인해 수량 및 상품이 변경될 수 있습니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>배송 지역은 국내만 가능합니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
+                            </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                <div>배송문의 : 02-6949-3010</div>
+                            </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             )}
