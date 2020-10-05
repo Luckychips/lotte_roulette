@@ -1,6 +1,6 @@
 import api from 'axios';
 
-const path  = 'http://13.124.102.27/api';
+const path  = 'http://13.124.102.27:8080/api';
 export const checkPromotionCode = (code) => {
     const suffix = `/check-promotion?promotion_code=${code}`;
     return api.get(`${path}${suffix}`);
