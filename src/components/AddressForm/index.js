@@ -7,9 +7,9 @@ const AddressForm = ({promotionCode, isAlready}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
     const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [detailAddress, setDetailAddress] = useState('');
     const [zipCode, setZipCode] = useState('');
+    const [basicAddress, setBasicAddress] = useState('');
+    const [detailAddress, setDetailAddress] = useState('');
     const [isCheckedPrivacy, setIsCheckedPrivacy] = useState(true);
     const [isCheckedConsignment, setIsCheckedConsignment] = useState(true);
     const [isDisabledButton, setIsDisabledButton] = useState(true);
@@ -23,14 +23,16 @@ const AddressForm = ({promotionCode, isAlready}) => {
             if (data.bname !== '') {
                 extraAddress += data.bname;
             }
+
             if (data.buildingName !== '') {
                 extraAddress += (extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName);
             }
+
             fullAddress += (extraAddress !== '' ? ` (${extraAddress})` : '');
         }
 
-        setAddress(fullAddress);
         setZipCode(data.zonecode);
+        setBasicAddress(fullAddress);
         setIsHidePostCode(true);
         console.log(fullAddress);  // e.g. '서울 성동구 왕십리로2길 20 (성수동1가)'
     };
@@ -53,8 +55,8 @@ const AddressForm = ({promotionCode, isAlready}) => {
             "phone": phone,
             "email": email,
             "zip_code": zipCode,
-            "address_r": address,
-            "address_j": address,
+            "address_r": basicAddress,
+            "address_j": basicAddress,
             "address_detail" : detailAddress,
             "address_reference": detailAddress
         };
@@ -69,12 +71,12 @@ const AddressForm = ({promotionCode, isAlready}) => {
     };
 
     useEffect(() => {
-        if (name.length > 0 && phone.length > 0 && email.length > 0 && address.length > 0 && detailAddress.length > 0 && isCheckedPrivacy && isCheckedConsignment) {
+        if (name.length > 0 && phone.length > 0 && email.length > 0 && zipCode.length > 0 && basicAddress.length > 0 && detailAddress.length > 0 && isCheckedPrivacy && isCheckedConsignment) {
             setIsDisabledButton(false);
         } else {
             setIsDisabledButton(true);
         }
-    }, [name, phone, email, address, detailAddress, isCheckedPrivacy, isCheckedConsignment]);
+    }, [name, phone, email, zipCode, basicAddress, detailAddress, isCheckedPrivacy, isCheckedConsignment]);
 
     return (
         <div className="info-container">
@@ -88,7 +90,12 @@ const AddressForm = ({promotionCode, isAlready}) => {
                         </div>
                         <div className="flex-between">
                             <label>연락처</label>
-                            <input type="text" value={phone} onChange={(event) => setPhone(event.target.value)} />
+                            <input
+                                type="text"
+                                value={phone}
+                                onChange={(event) => setPhone(event.target.value)}
+                                placeholder="- 없이 숫자만 입력하세요."
+                            />
                         </div>
                         <div className="flex-between">
                             <label>E-mail</label>
@@ -96,12 +103,34 @@ const AddressForm = ({promotionCode, isAlready}) => {
                         </div>
                         <div className="flex-between">
                             <label>주소</label>
-                            <input className="field-addr" disabled type="text" value={address} onChange={(event) => setAddress(event.target.value)} />
+                            <input
+                                disabled
+                                type="text"
+                                className="field-addr"
+                                value={zipCode}
+                                onChange={(event) => setZipCode(event.target.value)}
+                                placeholder="우편번호"
+                            />
                             <button className="search-address" onClick={(event) => search(event)}>주소검색</button>
                         </div>
                         <div className="flex-between">
-                            <label>(상세주소)</label>
-                            <input type="text" value={detailAddress} onChange={(event) => setDetailAddress(event.target.value)} />
+                            <label />
+                            <input
+                                disabled
+                                type="text"
+                                value={basicAddress}
+                                onChange={(event) => setBasicAddress(event.target.value)}
+                                placeholder="기본주소"
+                            />
+                        </div>
+                        <div className="flex-between">
+                            <label />
+                            <input
+                                type="text"
+                                value={detailAddress}
+                                onChange={(event) => setDetailAddress(event.target.value)}
+                                placeholder="상세주소"
+                            />
                         </div>
                         <div className="separator" />
                         <div className="row-flex-start">
