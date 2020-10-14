@@ -14,6 +14,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
     const [isCheckedConsignment, setIsCheckedConsignment] = useState(true);
     const [isDisabledButton, setIsDisabledButton] = useState(true);
     const [isHidePostCode, setIsHidePostCode] = useState(true);
+    const [isHidePrivacyPopup, setIsHidePrivacyPopup] = useState(true);
 
     const postCodeOnComplete = (data) => {
         let fullAddress = data.address;
@@ -141,7 +142,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                                     checked={isCheckedPrivacy}
                                     onChange={(event) => setIsCheckedPrivacy(event.target.checked)} />
                             </label>
-                            <span className="checkbox-name">[필수] 개인 정보 수집 및 이용</span>
+                            <span className="checkbox-name privacy" onClick={() => setIsHidePrivacyPopup(false)}>[필수] 개인 정보 수집 및 이용</span>
                         </div>
                         <div className="row-flex-start">
                             <label>
@@ -240,6 +241,30 @@ const AddressForm = ({promotionCode, isAlready}) => {
                                 <div>이벤트 및 경품 배송문의 : 대행사 ㈜그라운드케이, 02-6949-3010</div>
                             </span>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+            {!isHidePrivacyPopup && (
+                <div className="popup-layer">
+                    <div className="popup-wrapper">
+                        <div className="popup-header">
+                            개인 정보 수집 및 이용
+                            <img src="/images/btn_close.png" alt="" onClick={() => setIsHidePrivacyPopup(true)} />
+                        </div>
+                        <div className="popup-content">
+                            <p>이벤트 진행을 위하여 개인정보를 수집∙이용∙제공하고자 하는 경우에는 “개인정보 보호법” 제15조, 제17조에 따라 동의가 필요합니다.</p>
+                            <br />
+                            <p>○ 수집 이용 목적</p>
+                            <p>이벤트 신청, 당첨자 경품 지급, 고객상담 등 이벤트 진행</p>
+                            <p>○ 수집 이용할 항목</p>
+                            <p>이름, (휴대)전화번호, 이메일, 주소</p>
+                            <p>○ 보유 이용기간</p>
+                            <p>동의 일로부터 경품 수령 확인 후 또는 제공 경품 유효기간 만료 후 1개월 이내 또는 동의 철회일까지 보유∙이용되며, 수집 및 이용 목적이 달성된 후 또는 계약 종료 시에는 해당 정보를 파기합니다.</p>
+                            <p>※ 개인정보의 수집∙이용∙제공에 대해 동의하신 내용은 언제든지 철회할 수 있으며, 동의 거부 및 철회 시 당첨이 취소되어 경품 수령이 불가합니다.</p>
+                            <p>○ 제공받는 자</p>
+                            <p>이벤트 운영 및 경품 배송 대행사 ㈜그라운드케이</p>
+                            <p>상기 목적으로 본인의 개인정보를 수집∙이용∙제공하는 것에 동의합니다.</p>
                         </div>
                     </div>
                 </div>
