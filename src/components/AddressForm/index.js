@@ -167,7 +167,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                 <div>
                     <div className="prize-info size-md">
                         <div className="info-title">경품라인업</div>
-                        <div className="info-content">샤넬핸드백(미니), 금10돈, 알루미늄캐리어, 루이비통반지갑, 다이닝무료메뉴권, 커피이용권, <br />마카롱택시금액권 등 8종</div>
+                        <div className="info-content">샤넬핸드백(미니), 골드바(10돈), 하트만캐리어(알루미늄), 루이비통지갑(조이월렛), 다이닝무료메뉴권, 마카롱택시이용권, 폴바셋 커피쿠폰, 갤럭시 Z플립2 등 8종</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
                             <div>&middot; 경품 배송은 당첨 후 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
@@ -183,7 +183,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                     </div>
                     <div className="prize-info size-sm">
                         <div className="info-title">경품라인업</div>
-                        <div className="info-content category">샤넬핸드백(미니), 금10돈, 알루미늄캐리어, 루이비통반지갑, 다이닝무료메뉴권, 커피이용권, 마카롱택시금액권 등 8종</div>
+                        <div className="info-content category">샤넬핸드백(미니), 골드바(10돈), 하트만캐리어(알루미늄), 루이비통지갑(조이월렛), 다이닝무료메뉴권, 마카롱택시이용권, 폴바셋 커피쿠폰, 갤럭시 Z플립2 등 8종</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
                             <div className="relative-container">
