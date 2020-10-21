@@ -72,9 +72,9 @@
     }
 
     .address-form input[type="text"].field-addr {
-        width: 64% !important;
-        margin-left: 132px;
-        margin-right: 6px !important;
+        width: 63.5% !important;
+        margin-left: 123px;
+        margin-right: 0;
     }
 
     .size-sm {
