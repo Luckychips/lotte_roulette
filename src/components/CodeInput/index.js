@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
-import {Form, InputGroup, FormControl} from 'react-bootstrap';
+import {InputGroup, FormControl} from 'react-bootstrap';
 import {checkPromotionCode} from '../../API';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './CodeInput.css';
 
 /* gifts_code
-1	미니샤넬백
-2	골드바10돈
+1	샤넬핸드백
+2	골드바(18.75g)
 3	하트만 알미늄캐리어
-4	루이비통조예월렛
-5	갤럭시 Z플립 2
+4	루이비통반지갑(조에월릿)
+5	갤럭시 Z플립
 6	무료식사권
 7	폴바셋라테 쿠폰
 8	마카롱택시 할인권

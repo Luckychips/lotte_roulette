@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import './Roulette.css';
 
-// 1	샤넬핸드백(미니)
-// 2	골드바(10돈)
+// 1	샤넬핸드백
+// 2	골드바(18.75g)
 // 3	하트만캐리어(알루미늄)
-// 4	루이비통지갑(조에월릿)
-// 5	갤럭시 Z플립2
+// 4	루이비통반지갑(조에월릿)
+// 5	갤럭시 Z플립
 // 6	다이닝무료메뉴권
 // 7	폴바셋 커피쿠폰
 // 8	마카롱택시이용권
 
-const prizes = ['샤넬핸드백(미니)', '골드바(10돈)', '하트만캐리어(알루미늄)', '루이비통지갑(조에월릿)', '갤럭시 Z플립2', '다이닝무료메뉴권', '폴바셋 커피쿠폰', '마카롱택시이용권'];
+const prizes = ['샤넬핸드백', '골드바(18.75g)', '하트만캐리어(알루미늄)', '루이비통반지갑(조에월릿)', '갤럭시 Z플립', '다이닝무료메뉴권', '폴바셋 커피쿠폰', '마카롱택시이용권'];
 const Roulette = ({promotionCode, prizeNumber, isAlready, drawAPrize}) => {
     const [isFinish, setIsFinish] = useState(false);
 

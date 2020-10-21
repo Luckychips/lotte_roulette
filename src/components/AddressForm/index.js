@@ -3,6 +3,7 @@ import {PostCode} from '..';
 import {insertAddress} from '../../API';
 import './AddressForm.css';
 
+const prizeStr = '샤넬핸드백 3명, 갤럭시 Z플립 3명, 골드바(18.75g) 6명, 하트만캐리어(알루미늄) 10명, 루이비통반지갑(조에월릿) 20명, 다이닝무료메뉴권 1,000명, 폴바셋 커피쿠폰 1,000명, 마카롱 택시이용권 3,480명 등 8종';
 const AddressForm = ({promotionCode, isAlready}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -167,7 +168,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                 <div>
                     <div className="prize-info size-md">
                         <div className="info-title">경품라인업</div>
-                        <div className="info-content">샤넬핸드백(미니), 골드바(10돈), 하트만캐리어(알루미늄), 루이비통지갑(조이월렛), 다이닝무료메뉴권, 마카롱택시이용권, 폴바셋 커피쿠폰, 갤럭시 Z플립2 등 8종</div>
+                        <div className="info-content">{prizeStr}</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
                             <div>&middot; 경품 배송은 당첨 후 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
@@ -183,7 +184,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
                     </div>
                     <div className="prize-info size-sm">
                         <div className="info-title">경품라인업</div>
-                        <div className="info-content category">샤넬핸드백(미니), 골드바(10돈), 하트만캐리어(알루미늄), 루이비통지갑(조이월렛), 다이닝무료메뉴권, 마카롱택시이용권, 폴바셋 커피쿠폰, 갤럭시 Z플립2 등 8종</div>
+                        <div className="info-content category">{prizeStr}</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
                             <div className="relative-container">
