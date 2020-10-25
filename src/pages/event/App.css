@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: auto;
   text-align: center;
-  background-image: url('./assets/background.png');
+  background-image: url('../../assets/background.png');
   background-repeat: no-repeat;
   background-size: 1000px 1000px;
   background-position-x: center;

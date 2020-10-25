@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { CodeInput, Roulette, AddressForm } from './components';
+import {CodeInput, Roulette, AddressForm} from '../../components';
 import './App.css';
 
-function App() {
+function Event() {
     const [isAlready, setIsAlready] = useState(false);
     const [prizeNumber, setPrizeNumber] = useState(0);
     const [promotionCode, setPromotionCode] = useState('');
@@ -25,4 +25,4 @@ function App() {
     );
 }
 
-export default App;
+export default Event;
