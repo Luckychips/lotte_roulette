@@ -65,7 +65,7 @@ const AddressForm = ({promotionCode, isAlready}) => {
 
         const response = await insertAddress(params);
         if (response.status === 200 && response.data.success) {
-            alert('경품 신청이 완료되었습니다.\n경품 발송은 이벤트 종료 후 일괄 발송됩니다.');
+            alert('경품 신청이 완료되었습니다.\n경품 발송관련 안내사항은 영업일 기준 2일 내 문자로 발송됩니다.\n감사합니다.');
             window.location.reload();
         } else {
             alert('처리 중 문제가 발생했습니다.');

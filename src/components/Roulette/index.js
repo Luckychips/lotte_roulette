@@ -26,7 +26,7 @@ const Roulette = ({promotionCode, prizeNumber, isAlready, drawAPrize}) => {
             let wrackNumber = 0;
             if (prizeNumber === 99) {
                 wrackNumber = prizeNumber;
-                prizeNumber -= 94;
+                prizeNumber -= 91;
             }
 
             const roulette = document.querySelector('.roulette');
