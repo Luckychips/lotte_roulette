@@ -3,7 +3,7 @@ import {PostCode} from '..';
 import {insertAddress} from '../../API';
 import './AddressForm.css';
 
-const prizeStr = '샤넬핸드백 3명, 갤럭시 Z플립 3명, 골드바(18.75g) 6명, 하트만캐리어(알루미늄) 10명, 루이비통반지갑(조에월릿) 20명, 다이닝무료메뉴권 1,000명, 폴바셋 커피쿠폰 1,000명, 마카롱 택시이용권 3,480명 등 8종';
+const prizeStr = '샤넬 핸드백 (3명), 갤럭시 Z플립 (3명), 골드바 18.75g (6명), 하트만 알루미늄 캐리어 (10명), 루이비통 반지갑 조에월릿 (20명), 다이닝 무료메뉴권 (1,000명), 폴바셋 커피쿠폰 (1,000명), 마카롱 택시 금액권 (3,480명)';
 const AddressForm = ({promotionCode, isAlready}) => {
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
@@ -167,80 +167,132 @@ const AddressForm = ({promotionCode, isAlready}) => {
             ) : (
                 <div>
                     <div className="prize-info size-md">
-                        <div className="info-title">경품라인업</div>
+                        <div className="info-title">행사기간</div>
+                        <div className="info-content">2020. 10. 26(화) ~ 12.31(목)</div>
+                        <div className="info-content">※ 본 이벤트는 경품 소진 시 자동 종료 됩니다.</div>
+                        <div className="info-title">행사내용</div>
+                        <div className="info-content">행사기간동안 선착순으로 이벤트 응모 번호를 문자(LMS)를 수신 고객에 한하여, 이벤트 참여가 가능합니다.</div>
+                        <div className="info-title">경품내용</div>
                         <div className="info-content">{prizeStr}</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
-                            <div>&middot; 경품 배송은 당첨 후 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
+                            <div>&middot; 경품 배송은 11월 12일 이후, 순차적으로 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
+                            <div>&middot; 경품 제공 시점에 정상 카드 보유 및 위메프페이 이용한 고객에 한하여 경품혜택이 제공됩니다.</div>
+                            <div>&middot; 모바일경품의 이용기간은 발송일로부터 최대 60일이며, 이용기간이 지난 경우 재 발송되지 않으므로, 반드시 기간 내에 이용하시기 바랍니다.</div>
+                            <div>&middot; 모바일경품 : 다이닝 무료메뉴권, 폴바셋 커피쿠폰, 마카롱 택시 금액권</div>
                             <div>&middot; 경품 수령은 배송 후 영업일 기준 약 7일 정도 소요됩니다.</div>
+                            <div>&middot; 이벤트에 명시된 경품 이미지는 실물과 다를 수 있습니다.</div>
                             <div>&middot; 제공 경품은 타인에게 양도되지 않으며, 미 사용분에 대한 재발송이 불가합니다.</div>
                             <div>&middot; 제공 경품은 다른 제품으로 변경 및 현금 환불이 불가합니다.</div>
                             <div>&middot; 경품은 위탁업체 사정으로 변경될 수 있으며, 이 경우 안내된 경품의 정상가에 해당하는 제품으로 대체됩니다.</div>
-                            <div>&middot; 경품 제세공과금(경품가의 22%)은 경품 이벤트 운영사에서 부담합니다.</div>
+                            <div>&middot; 50,000원 초과 경품 제세공과금(경품가의 22%)은 위탁업체에서 부담합니다.</div>
                             <div>&middot; 타인의 개인정보를 도용하거나 부정한 방법으로 참여 시 당첨을 취소합니다.</div>
                             <div>&middot; 배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
-                            <div>&middot; 이벤트 및 경품 배송문의 : 대행사 ㈜그라운드케이, 02-6949-3010</div>
+                            <div>&middot; 경품 당첨 시, 경품 발송을 위해 위탁 업체인 ㈜그라운드케이에 회원님의 성명, 휴대전화번호가 제공되며, 경품 발송 후 60일 이내에 자동 폐기됩니다.</div>
+                            <div>&middot; 문의 : ㈜그라운드케이, 02-6949-3010 (평일 10:00 ~ 12:00, 13:00~18:00 운영, 토•일 공휴일 제외)</div>
+                            <div>&middot; 행사기간 및 내용, 경품은 주최측의 사정에 따라 별도 공지를 통해 변경, 중단될 수 있습니다.</div>
                         </div>
                     </div>
                     <div className="prize-info size-sm">
-                        <div className="info-title">경품라인업</div>
+                        <div className="info-title">행사기간</div>
+                        <div className="info-content category">2020. 10. 26(화) ~ 12.31(목)</div>
+                        <div className="info-content category">※ 본 이벤트는 경품 소진 시 자동 종료 됩니다.</div>
+                        <div className="info-title">행사내용</div>
+                        <div className="info-content category">행사기간동안 선착순으로 이벤트 응모 번호를 문자(LMS)를 수신 고객에 한하여, 이벤트 참여가 가능합니다.</div>
+                        <div className="info-title">경품내용</div>
                         <div className="info-content category">{prizeStr}</div>
                         <div className="info-title">유의사항</div>
                         <div className="info-content">
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>경품 배송은 당첨 후 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
-                            </span>
+                                    <div>경품 배송은 11월 12일 이후, 순차적으로 배송됩니다. (당사 사정에 의해 지연될 수도 있습니다.)</div>
+                                </span>
                             </div>
 
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>경품 수령은 배송 후 영업일 기준 약 7일 정도 소요됩니다.</div>
-                            </span>
+                                    <div>경품 제공 시점에 정상 카드 보유 및 위메프페이 이용한 고객에 한하여 경품혜택이 제공됩니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>제공 경품은 타인에게 양도되지 않으며, 미 사용분에 대한 재발송이 불가합니다.</div>
-                            </span>
+                                    <div>모바일경품의 이용기간은 발송일로부터 최대 60일이며, 이용기간이 지난 경우 재 발송되지 않으므로, 반드시 기간 내에 이용하시기 바랍니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>제공 경품은 다른 제품으로 변경 및 현금 환불이 불가합니다.</div>
-                            </span>
+                                    <div>모바일경품 : 다이닝 무료메뉴권, 폴바셋 커피쿠폰, 마카롱 택시 금액권</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>경품은 위탁업체 사정으로 변경될 수 있으며, 이 경우 안내된 경품의 정상가에 해당하는 제품으로 대체됩니다.</div>
-                            </span>
+                                    <div>경품 수령은 배송 후 영업일 기준 약 7일 정도 소요됩니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>경품 제세공과금(경품가의 22%)은 경품 이벤트 운영사에서 부담합니다.</div>
-                            </span>
+                                    <div>이벤트에 명시된 경품 이미지는 실물과 다를 수 있습니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>타인의 개인정보를 도용하거나 부정한 방법으로 참여 시 당첨을 취소합니다.</div>
-                            </span>
+                                    <div>제공 경품은 타인에게 양도되지 않으며, 미 사용분에 대한 재발송이 불가합니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
-                            </span>
+                                    <div>제공 경품은 다른 제품으로 변경 및 현금 환불이 불가합니다.</div>
+                                </span>
                             </div>
                             <div className="relative-container">
                                 <span className="dot">&middot;</span>
                                 <span className="list-item-text">
-                                <div>이벤트 및 경품 배송문의 : 대행사 ㈜그라운드케이, 02-6949-3010</div>
-                            </span>
+                                    <div>경품은 위탁업체 사정으로 변경될 수 있으며, 이 경우 안내된 경품의 정상가에 해당하는 제품으로 대체됩니다.</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>50,000원 초과 경품 제세공과금(경품가의 22%)은 위탁업체에서 부담합니다.</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>타인의 개인정보를 도용하거나 부정한 방법으로 참여 시 당첨을 취소합니다.</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>배송지 및 연락처 오기재로 인한 배송 사고는 책임지지 않습니다.</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>경품 당첨 시, 경품 발송을 위해 위탁 업체인 ㈜그라운드케이에 회원님의 성명, 휴대전화번호가 제공되며, 경품 발송 후 60일 이내에 자동 폐기됩니다.</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>문의 : ㈜그라운드케이, 02-6949-3010 (평일 10:00 ~ 12:00, 13:00~18:00 운영, 토•일 공휴일 제외)</div>
+                                </span>
+                            </div>
+                            <div className="relative-container">
+                                <span className="dot">&middot;</span>
+                                <span className="list-item-text">
+                                    <div>행사기간 및 내용, 경품은 주최측의 사정에 따라 별도 공지를 통해 변경, 중단될 수 있습니다.</div>
+                                </span>
                             </div>
                         </div>
                     </div>
